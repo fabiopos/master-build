@@ -9,6 +9,8 @@ router.get('/', async(req, res) =>{
 });
 
 
+
+
 router.put('/', async(req, res) => {
     const cpu = await loadMotherBoardsCollection();
     await cpu.insertOne({
