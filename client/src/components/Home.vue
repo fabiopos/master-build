@@ -1,7 +1,7 @@
 <template>
-    <div>
-        Home
-    </div>
+  <v-layout fluid>
+      Home
+  </v-layout>
 </template>
 
 <script>
