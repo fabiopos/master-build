@@ -3,8 +3,6 @@ const mongodb = require('mongodb');
 const router = express.Router();
 var db = require('../../db')
 
-
-
 router.get('/', async(req, res) =>{
     const cpu = await loadMotherBoardsCollection();
     res.send(await cpu.find({}).toArray());
