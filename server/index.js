@@ -49,8 +49,12 @@ if(process.env.NODE_ENV === 'production'){
 const port = process.env.PORT  || 3000;
 
 try {
-    db.connect(connString);
-    app.listen(port, ()=> console.log('Listening at port 3000'));
+    db.connect(connString).then(res => {
+        console.log('res =>', res)
+        if(!res.hasError) app.listen(port, ()=> console.log('Listening at port 3000'));
+
+    });
+    
 } catch (error) {
     console.log('No se pudo conectar a mongo')    
 }

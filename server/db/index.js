@@ -7,11 +7,13 @@ var state = {
 exports.connect = async function(url, done) {
   try {
     if (state.db) return done();  
-    const client = await MongoClient.connect(url, {  useNewUrlParser: true  });
-    state.db = client.db('master-build')
-    
+    console.log('conectting', url);
+    const client = await MongoClient.connect(url, {  useNewUrlParser: true  });    
+    state.db = client.db('master-build');
+    return { hasError: false };
   } catch (error) {
-    return error;
+
+    return { ...error, hasError: true };
   }
 
 }

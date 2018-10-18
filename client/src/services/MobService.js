@@ -23,13 +23,13 @@ static getMobs(){
 }
 
     // Create
-    static insertMob(mob){
-        return axios.post(url, mob);
+    static insertMob(mob){// eslint-disable-next-line        
+        return axios.put(url, mob);
     }
 
     // update
-    static updateMob(mob){
-        return axios.post(url, mob);
+    static updateMob(mob){ // eslint-disable-next-line       
+        return axios.post(`${url}/${mob._id}`, mob);
     }
     // Delete
     static deleteMob(id){
